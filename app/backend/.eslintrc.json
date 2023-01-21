@@ -36,6 +36,7 @@
       "single"
     ],
     "implicit-arrow-linebreak": "off",
+    "linebreak-style": ["error", "windows"],
     "consistent-return": "off",
     "@typescript-eslint/naming-convention": [
       "error", { 
