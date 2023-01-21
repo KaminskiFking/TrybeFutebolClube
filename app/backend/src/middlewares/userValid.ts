@@ -7,16 +7,15 @@ export default class userValid {
     res: Response,
     next: NextFunction,
   ) => {
-    const {email, password } = req.body as IUser;
-    console.log(email, password);
+    const { email, password } = req.body as IUser;
     if (!email) {
       const message = 'All fields must be filled';
       return res.status(400).json({ message });
-    };
+    }
     if (!password && password.length > 6) {
       const message = 'All fields must be filled';
       return res.status(400).json({ message });
-    };
+    }
     next();
   };
 }
