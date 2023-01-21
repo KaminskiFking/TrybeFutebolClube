@@ -13,7 +13,6 @@ export default class UserService {
 
   public async login(_email: string, _password: string) {
     const user = await this.model.findOne(_email);
-    console.log(user.email);
     if (!user) {
       return { status: 401, message: 'Incorrect email or password' };
     }

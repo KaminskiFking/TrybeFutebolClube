@@ -12,9 +12,13 @@ export default class userValid {
       const message = 'All fields must be filled';
       return res.status(400).json({ message });
     }
-    if (!password && password.length > 6) {
+    if (!password) {
       const message = 'All fields must be filled';
       return res.status(400).json({ message });
+    }
+    if (password.length < 6) {
+      const smallPassword = 'Password must be more than 6 characters';
+      return res.status(400).json({ smallPassword });
     }
     next();
   };

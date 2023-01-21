@@ -16,6 +16,6 @@ export default class UserController {
   public validateLogin = async (req: Request, res: Response) => {
     const token = req.headers.authorization;
     const { status, role } = await this.userService.validateLogin(token as string);
-    return res.status(status).json(role);
+    return res.status(status).json({ role });
   };
 }
