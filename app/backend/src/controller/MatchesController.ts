@@ -12,9 +12,10 @@ export default class MatchesController {
 
   public create = async (req: Request, res: Response) => {
     const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = req.body;
-    const { status, message } = await this.services
+    const { status, message, data } = await this.services
       .create(homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals);
-    return res.status(status).json(message);
+    if (message) return res.status(status).json({ message });
+    return res.status(status).json(data);
   };
 
   public updateProgress = async (req: Request, res: Response) => {

@@ -44,7 +44,7 @@ export default class MacthesService {
 
     const resultMatch = await this.model
       .create(homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals);
-    return { status: 201, message: resultMatch };
+    return { status: 201, data: resultMatch };
   }
 
   public async updateProgress(id: number) {
