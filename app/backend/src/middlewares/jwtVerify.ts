@@ -8,14 +8,17 @@ export default class jwtVerify {
     res: Response,
     next: NextFunction,
   ) => {
-    const token = req.headers.authorization;
-    if (!token) {
-      return res.status(401).json({ message: 'Token not found' });
-    }
     try {
-      verify(token, JWT_SECRET);
-      next();
-    } catch (error) {
+      const { authorization } = req.headers;
+
+      if (!authorization) {
+        return res.status(401).json({ message: 'Token must be a valid token' });
+      }
+
+      verify(authorization, JWT_SECRET);
+
+      return next();
+    } catch (err) {
       return res.status(401).json({ message: 'Token must be a valid token' });
     }
   };
