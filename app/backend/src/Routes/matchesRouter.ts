@@ -8,9 +8,9 @@ const jwt = new JwtVerify();
 
 const matchController = new MatchesController();
 
-matchRouter.get('/matches', matchController.findAll);
-matchRouter.post('/matches', jwt.valid, matchController.create);
-matchRouter.patch('/matches/:id', matchController.updateScoreBoard);
-matchRouter.patch('/matches/:id/finish', matchController.updateProgress);
+matchRouter.get('/', matchController.findAll);
+matchRouter.post('/', jwt.valid, matchController.create);
+matchRouter.patch('/:id/finish', matchController.updateProgress);
+matchRouter.patch('/:id', matchController.updateScoreBoard);
 
 export default matchRouter;

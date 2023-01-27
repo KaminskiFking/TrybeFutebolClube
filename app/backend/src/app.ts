@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as cors from 'cors';
 import userRouter from './Routes/loginRouter';
 import matchRouter from './Routes/matchesRouter';
 import teamRouter from './Routes/teamsRouter';
@@ -25,9 +26,10 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
-    this.app.use(userRouter);
-    this.app.use(teamRouter);
-    this.app.use(matchRouter);
+    this.app.use(cors());
+    this.app.use('/login', userRouter);
+    this.app.use('/teams', teamRouter);
+    this.app.use('/matches', matchRouter);
   }
 
   public start(PORT: string | number):void {

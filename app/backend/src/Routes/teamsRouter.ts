@@ -5,7 +5,7 @@ const teamRouter = express.Router();
 
 const teamController = new TeamsController();
 
-teamRouter.get('/teams', teamController.findAll);
-teamRouter.get('/teams/:id', teamController.findById);
+teamRouter.get('/', teamController.findAll);
+teamRouter.get('/:id', teamController.findById);
 
 export default teamRouter;

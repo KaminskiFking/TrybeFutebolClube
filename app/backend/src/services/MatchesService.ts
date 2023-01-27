@@ -31,15 +31,15 @@ export default class MacthesService {
     homeTeamGoals: string,
     awayTeamGoals: string,
   ) {
-    if (homeTeamId === awayTeamId) {
-      return { status: 422, message: 'It is not possible to create a match with two equal teams' };
-    }
-
     const teamOne = await this.teamModel.findById(homeTeamId);
     const teamTwo = await this.teamModel.findById(awayTeamId);
 
     if (!teamOne || !teamTwo) {
       return { status: 404, message: 'There is no team with such id!' };
+    }
+
+    if (homeTeamId === awayTeamId) {
+      return { status: 422, message: 'It is not possible to create a match with two equal teams' };
     }
 
     const resultMatch = await this.model
