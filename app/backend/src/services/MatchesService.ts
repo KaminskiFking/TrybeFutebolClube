@@ -47,19 +47,16 @@ export default class MacthesService {
     return { status: 201, message: resultMatch };
   }
 
-  public async update(id: number) {
-    const resultMatches = await this.model.update(id);
+  public async updateProgress(id: number) {
+    const resultMatches = await this.model.updateProgress(id);
     if (!resultMatches) {
       return { status: 400, message: 'Not Found Id' };
     }
     return { status: 200, message: 'Finished' };
   }
 
-  public async updateScoreBoard(id: string, homeTeamGoals: string, awayTeamGoals: string) {
-    const result = await this.model.updateScoreBoard(id, homeTeamGoals, awayTeamGoals);
-    if (!result) {
-      return { status: 400, message: 'Not Found Id' };
-    }
+  public async updateScoreBoard(id: string, homeTeamGoals: number, awayTeamGoals: number) {
+    await this.model.updateScoreBoard(id, homeTeamGoals, awayTeamGoals);
     return { status: 200, message: 'ScoreBoard Updated' };
   }
 }

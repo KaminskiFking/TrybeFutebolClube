@@ -10,7 +10,7 @@ const matchController = new MatchesController();
 
 matchRouter.get('/matches', matchController.findAll);
 matchRouter.post('/matches', jwt.valid, matchController.create);
-matchRouter.post('/matches/:id', matchController.updateScoreBoard);
-matchRouter.put('/matches/:id/finish', matchController.update);
+matchRouter.patch('/matches/:id', matchController.updateScoreBoard);
+matchRouter.patch('/matches/:id/finish', matchController.updateProgress);
 
 export default matchRouter;

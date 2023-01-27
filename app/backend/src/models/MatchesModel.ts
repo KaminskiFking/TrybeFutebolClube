@@ -37,7 +37,7 @@ export default class MatchesModel {
     return result as ICreateMatch;
   }
 
-  public async update(idFind: number) {
+  public async updateProgress(idFind: number) {
     const result = await this.model.update({ inProgress: false }, {
       where: {
         id: idFind,
@@ -46,12 +46,9 @@ export default class MatchesModel {
     return result;
   }
 
-  public async updateScoreBoard(idFind: string, homeTeamGoals: string, awayTeamGoals: string) {
-    const result = await this.model.update({ homeTeamGoals, awayTeamGoals }, {
-      where: {
-        id: idFind,
-      },
+  public async updateScoreBoard(id: string, homeTeamGoals: number, awayTeamGoals: number) {
+    await this.model.update({ homeTeamGoals, awayTeamGoals }, {
+      where: { id },
     });
-    return result;
   }
 }

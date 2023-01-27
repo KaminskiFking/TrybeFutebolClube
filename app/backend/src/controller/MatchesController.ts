@@ -17,9 +17,9 @@ export default class MatchesController {
     return res.status(status).json(message);
   };
 
-  public update = async (req: Request, res: Response) => {
+  public updateProgress = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { status, message } = await this.services.update(id as unknown as number);
+    const { status, message } = await this.services.updateProgress(id as unknown as number);
     return res.status(status).json(message);
   };
 
