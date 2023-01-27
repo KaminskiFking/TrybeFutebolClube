@@ -8,7 +8,7 @@ export default class TeamsService {
   }
 
   public async findAll() {
-    const resultTeams = await this.model.finAll();
+    const resultTeams = await this.model.findAll();
     if (!resultTeams) {
       return { status: 400, message: 'Not Found Teams' };
     }

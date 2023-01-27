@@ -4,7 +4,7 @@ import ITeam from '../interfaces/ITeam';
 export default class TeamsModel {
   private model = TeamModel;
 
-  public async finAll(): Promise<ITeam[]> {
+  public async findAll(): Promise<ITeam[]> {
     const result = await this.model.findAll();
     return result as ITeam[];
   }
