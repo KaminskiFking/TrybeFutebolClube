@@ -13,15 +13,9 @@ export default class MacthesService {
   public async findAll(query?: string) {
     if (query === undefined) {
       const resultMatches = await this.model.findAll();
-      if (!resultMatches) {
-        return { status: 400, message: 'Not Found Matches' };
-      }
       return { status: 200, message: resultMatches };
     }
     const resultMatches = await this.model.findAll(query);
-    if (!resultMatches) {
-      return { status: 400, message: 'Not Found Matches' };
-    }
     return { status: 200, message: resultMatches };
   }
 
@@ -48,10 +42,7 @@ export default class MacthesService {
   }
 
   public async updateProgress(id: number) {
-    const resultMatches = await this.model.updateProgress(id);
-    if (!resultMatches) {
-      return { status: 400, message: 'Not Found Id' };
-    }
+    await this.model.updateProgress(id);
     return { status: 200, message: 'Finished' };
   }
 

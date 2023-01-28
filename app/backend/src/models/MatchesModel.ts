@@ -1,7 +1,7 @@
 import Teams from '../database/models/Teams';
 import MatchModel from '../database/models/Matches';
-import IMatches from '../interfaces/ITeam';
 import ICreateMatch from '../interfaces/ICreateMatch';
+import IMatches from '../interfaces/IMatches';
 
 export default class MatchesModel {
   private model = MatchModel;

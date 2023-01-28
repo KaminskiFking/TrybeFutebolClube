@@ -5,7 +5,6 @@ export default class MatchesController {
   constructor(private services = new MacthesService()) {}
   public findAll = async (req: Request, res: Response) => {
     const query = req.query.inProgress;
-    console.log(query);
     const { status, message } = await this.services.findAll(query as string);
     return res.status(status).json(message);
   };
